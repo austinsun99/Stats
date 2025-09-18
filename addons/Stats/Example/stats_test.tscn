@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp16lha0aia7w"]
+
+[ext_resource type="Script" uid="uid://w755vtsf3v7m" path="res://addons/Stats/Example/StatsTestNoResource.cs" id="1_cijik"]
+
+[node name="StatsTest" type="Node"]
+
+[node name="StatsTestNoResource" type="Node" parent="."]
+script = ExtResource("1_cijik")
