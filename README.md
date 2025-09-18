@@ -27,7 +27,7 @@ To create an additive stat modifier, the following steps are needed:
 StatModifierData modifierData = new StatModifierData(5f, StatModifierType.Add);
 StatModifier modifier = new StatModifier(modifierData);
 ~~~
-This may seem excessive, but certain features, such as [what object applied a certain modifier belongs to](#modifier-source) and the ability to use [resources for modifier data](using-resources) require it.
+This may seem excessive, but certain features, such as [what object applied a certain modifier belongs to](#modifier-source) and the ability to use [resources for modifier data](#using-resources) require it.
 
 Now finally, we apply the modifier
 ~~~cs
@@ -42,7 +42,7 @@ of which has an expected value of $55$.
 
 ---
 
-For a more complete example, including an implementation of equipping and unequipping armour, see the Examples folder.
+For a more complete example, including an implementation of equipping and unequipping armour, see the [Examples](addons/Stats/Example) folder.
 
 ---
 
