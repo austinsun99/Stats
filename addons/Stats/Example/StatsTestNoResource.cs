@@ -40,8 +40,8 @@ public partial class StatsTestNoResource : Node
         };
 
         // Here we create the Armour objects with its statsToModify.
-        Boots = new Armour(bootsStatsToModify);
-        Helmet = new Armour(helmetStatsToModify);
+        Boots = new Armour(bootsStatsToModify, "Boots");
+        Helmet = new Armour(helmetStatsToModify, "Helmet");
 
         GD.Print($"Current MaxHealth: {MaxHealth.FinalValue}");
         GD.Print($"Expected: 50");
@@ -75,5 +75,25 @@ public partial class StatsTestNoResource : Node
         // 2x Mult from the helmet is also now weaker.
         GD.Print($"Current MaxHealth: {MaxHealth.FinalValue}");
         GD.Print($"Expected: 110");
+
+        // We remove all the modifiers from max health that were provided by helmet.
+        // Here, the helmet still has an effect on Shield, but not anymore on MaxHealth.
+
+        MaxHealth.RemoveModifierFromSource(Helmet);
+
+        GD.Print($"Current MaxHealth: {MaxHealth.FinalValue}");
+        GD.Print($"Expected: 50"); // Since MaxHealth has no modifiers now.
+        GD.Print($"Current Shield: {Shield.FinalValue}");
+        GD.Print("Expected: 26"); // Should remain unchanged
+
+        // Reset all the modifiers
+        Helmet.RemoveModifiers();
+        Boots.RemoveModifiers();
+
+        // Add
+        Helmet.AddModifiers();
+        Boots.AddModifiers();
+
+        GD.Print(MaxHealth.ToString());
     }
 }
